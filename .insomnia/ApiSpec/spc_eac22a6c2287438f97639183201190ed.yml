@@ -1,34 +1,28 @@
 _id: spc_eac22a6c2287438f97639183201190ed
 type: ApiSpec
 parentId: wrk_fe13abdd26e84383a6bc44149eae7650
-modified: 1652292073625
+modified: 1652293224781
 created: 1652291999769
-fileName: my-spec.yaml
-contents: |
-  openapi: 3.0.1
+fileName: customerapi_oaspec.yaml
+contents: |-
+  openapi: 3.0.0
   info:
     title: Customer API
     version: v1.0
   servers:
-  - url: https://mockbin.org/bin/1956a76b-ec56-4cdc-847a-41a766375969
+  - url: http://localhost:80/api
   paths:
     /v1/customers:
       get:
         description: Returns list of customers
         operationId: Get Customers
-        x-kong-plugin-rate-limiting:
-          enabled: true
-          config:
-            second: 5
-            policy: local
         responses:
           "200":
             description: ""
             content:
-              '*/*':
+              application/json:
                 schema:
                   $ref: '#/components/schemas/Customers'
-            x-amf-mediaType: application/json
   components:
     schemas:
       Customers:
@@ -53,4 +47,12 @@ contents: |
             type: string
             description: Customer Name
         description: Customer information
+    responses: {}
+    parameters: {}
+    examples: {}
+    requestBodies: {}
+    headers: {}
+    securitySchemes: {}
+    links: {}
+    callbacks: {}
 contentType: yaml
