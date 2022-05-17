@@ -1,0 +1,78 @@
+{
+  "openapi": "3.0.0",
+  "info": {
+    "title": "Customer API",
+    "version": "v1.0"
+  },
+  "servers": [
+    {
+      "url": "http://localhost:80/api"
+    }
+  ],
+  "paths": {
+    "/v1/customers": {
+      "get": {
+        "responses": {
+          "200": {
+            "description": "",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Customers"
+                }
+              }
+            }
+          }
+        },
+        "description": "Returns list of customers",
+        "operationId": "Get Customers"
+      }
+    }
+  },
+  "components": {
+    "schemas": {
+      "Customers": {
+        "example": [
+          {
+            "id": 4789,
+            "customerName": "Robert DeNiro"
+          },
+          {
+            "id": 36987,
+            "customerName": "Al Pacino"
+          }
+        ],
+        "type": "array",
+        "items": {
+          "$ref": "#/components/schemas/Customer"
+        }
+      },
+      "Customer": {
+        "description": "Customer information",
+        "type": "object",
+        "properties": {
+          "id": {
+            "description": "Identifier of customer",
+            "type": "integer"
+          },
+          "customerName": {
+            "description": "Customer Name",
+            "type": "string"
+          }
+        },
+        "required": [
+          "id",
+          "customerName"
+        ]
+      }
+    },
+    "responses": {},
+    "parameters": {},
+    "examples": {},
+    "requestBodies": {},
+    "headers": {},
+    "securitySchemes": {},
+    "links": {},
+    "callbacks": {}
+  }
+}
