@@ -1,0 +1,102 @@
+#%RAML 1.0
+title: Calculator
+version: v1
+
+/addition:
+  get:
+    queryParameters:
+      number1:
+        type: integer
+        required: true
+        example: 9
+      number2:
+        type: integer
+        required: true
+        example: 10
+    responses:
+      200:
+        body:
+          application/json:
+            example: !include examples/addition-result.json
+      400:
+        body:
+          application/json:
+            example:
+              {
+                "message":"Bad request"
+              }
+      401:
+        body:
+          application/json:
+            example:
+              {
+                "message": "Un Auth error"
+              }
+/sub:
+  post:
+    queryParameters:
+      num1:
+        example: 20
+        type: integer
+        required: true
+      num2:
+        example: 10
+        type: integer
+        required: true
+    responses:
+      200:
+        body:
+          application/json:
+            example: !include examples/sub-result.json
+      500:
+        description: |
+          internal server error
+
+/multi:
+  patch:
+    queryParameters:
+      number-1:
+        type: integer
+        example: 5
+      number-2:
+        required: true
+        type: integer
+        example: 10
+    responses:
+      200:
+        body:
+          application/json:
+            example: !include examples/multi-result.json
+
+/div:
+  put:
+    queryParameters:
+      number1:
+        type: integer
+        example: 30
+      number2:
+        required: true
+        type: integer
+        example: 5
+    responses:
+      200:
+        body:
+          application/json:
+            example: !include examples/div-result.json
+              
+      500:
+        body:
+          application/json:
+            example:
+              {
+                "message":"internal server error"
+              }
+
+
+    
+
+
+          
+  
+
+
