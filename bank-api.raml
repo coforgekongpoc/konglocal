@@ -1,0 +1,38 @@
+#%RAML 1.0
+title: Bank-APi
+description: This Raml is for assessment sapi API.
+version: 1.0.0
+protocols:
+  - HTTPS
+  - HTTP
+
+traits:
+  common-header : !include /exchange_modules/f6e1e4c4-747d-4d63-85a1-0c6d48c73e1c/common-fragment/1.0.0/Traits/common-header-traits.raml
+
+
+/assesments:
+  description: This is bank API
+  get:
+    description: api for get details
+    is:
+      - common-header
+    responses:
+      200:
+        body:
+          application/json:
+            type: object
+            properties:
+              retrieveresponse:
+                required: true
+                type: array
+                items:
+                  properties:
+                    question:
+                      required: true
+                      type: string
+                      example: "what is an INvestment Banking object"
+
+
+                  
+  
+          
