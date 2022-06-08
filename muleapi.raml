@@ -1,0 +1,21 @@
+#%RAML 1.0
+title: MuleAPI
+version: 1.0.0
+protocols:
+  - https
+  - http
+
+/tests:
+  description: resource
+  get:
+    description: Root of the API
+    responses:
+      200:
+        description: API is working fine
+        body:
+          application/json:
+            example: {
+              message: 'API is working fine'
+            }
+            properties:
+              message: any
